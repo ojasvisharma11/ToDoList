@@ -114,7 +114,7 @@ function saveLocalToDos(todo){
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 function getToDos(){
-    let todos;
+    let todos = [];
     console.log(localStorage.getItem("todos"), typeof localStorage.getItem("todos"))
     if (localStorage.getItem("todos") === "null") {
         todos = [];
