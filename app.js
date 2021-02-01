@@ -104,7 +104,7 @@ function filterToDo(event){
 
 function saveLocalToDos(todo){
     let todos;
-    if (localStorage.getItem("todos") === "null") {
+    if (localStorage.getItem("todos") === null) {
         todos = [];
     } 
     else {
@@ -116,7 +116,7 @@ function saveLocalToDos(todo){
 function getToDos(){
     let todos;
     console.log(localStorage.getItem("todos"), typeof localStorage.getItem("todos"))
-    if (localStorage.getItem("todos") === "null") {
+    if (localStorage.getItem("todos") === null) {
         todos = [];
         console.log(todos)
     } 
@@ -156,7 +156,7 @@ function getToDos(){
 
 function removeLocalToDos(todo){
     let todos;
-    if (localStorage.getItem("todos") === "null") {
+    if (localStorage.getItem("todos") === null) {
         todos = [];
     } 
     else {
