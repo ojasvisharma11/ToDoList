@@ -12,7 +12,11 @@ filterOption.addEventListener('click', filterToDo)
 
 function addToDo(event){
     event.preventDefault()
-    
+    // console.log(todoInput.value)
+    if(todoInput.value == ""){
+        window.alert("Task can't be empty")
+        return
+    }
     const todoDiv = document.createElement('div');
     todoDiv.classList.add("todo");
 
