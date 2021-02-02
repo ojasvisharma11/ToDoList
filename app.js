@@ -10,13 +10,76 @@ todoList.addEventListener('click', deleteToDo)
 filterOption.addEventListener('click', filterToDo)
 
 
-function addToDo(event){
-    event.preventDefault()
-    // console.log(todoInput.value)
-    if(todoInput.value == ""){
-        window.alert("Task can't be empty")
-        return
+function containsNum(str){
+    for(var index = 0;index<str.length;index++){
+        if(str[index] >= '0' && str[index] <= '9'){
+            return true;
+        }
+        
     }
+    return false;
+}
+function isValid(){
+    
+    if(todoInput.value == ""){
+        window.alert("Task can't be empty");
+        return false;
+    }
+    
+    if(todoInput.value.length > 22){
+        window.alert("Can't store long inputs, please be precise");
+        return false;
+    }
+    
+    if(containsNum(todoInput.value) == true){
+        return false;
+    }
+    if(todoList.getElementsByTagName("div").length > 10){
+        alert("You can't add more than 10 tasks");
+        return false;
+    }
+    const todos = todoList.childNodes;
+    var task_valid = true;
+    todos.forEach(function(todo) {
+        if(task_valid == false)return false;
+        if(todoInput.value == todo.getElementsByTagName('li').item(0).innerText){
+            window.alert("Can't store duplicates");
+            task_valid = false;
+            return false;
+        }
+    });
+    // returning validation
+    return task_valid;
+}
+
+function addToDo(event){
+    event.preventDefault();
+    console.log(todoList.getElementsByTagName("div").length);
+    const valid = isValid();
+    if(valid == false){
+        console.log("oops");
+        return  false;
+    }
+    console.log(valid, "Hi");
+        // switch (event.target.value) {
+        //   case "all":
+        //     todo.style.display = "flex";
+        //     break;
+        //   case "completed":
+        //     if (todo.classList.contains("completed")) {
+        //       todo.style.display = "flex";
+        //     } else {
+        //       todo.style.display = "none";
+        //     }
+        //     break;
+        //   case "uncompleted":
+        //     if (!todo.classList.contains("completed")) {
+        //       todo.style.display = "flex";
+        //     } else {
+        //       todo.style.display = "none";
+        //     }
+        //     break;
+    // }
     const todoDiv = document.createElement('div');
     todoDiv.classList.add("todo");
 
