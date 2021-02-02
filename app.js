@@ -56,9 +56,10 @@ function deleteToDo(event){
     else if (item.classList[0] === "complt-btn") {
         const todo = item.parentElement;
         todo.classList.toggle("completed");
-        // todo.addEventListener("transitionend", function(){
-        //     todo.remove();
-        // });
+        todo.addEventListener("transitionend", function(){
+            todo.remove();
+        });
+        todoList.appendChild(todo);
     }
 }
 
