@@ -32,6 +32,7 @@ function isValid(){
     }
     
     if(containsNum(todoInput.value) == true){
+        window.alert("Task can't have numbers");
         return false;
     }
     if(todoList.getElementsByTagName("div").length > 10){
